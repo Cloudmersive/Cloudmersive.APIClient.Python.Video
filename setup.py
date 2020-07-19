@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    convertapi
+    videoapi
 
     
 
@@ -13,8 +13,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "cloudmersive_convert_api_client"
-VERSION = "3.0.3"
+NAME = "cloudmersive_video_api_client"
+VERSION = "3.0.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -36,10 +36,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="convertapi",
+    description="videoapi",
     author_email="",
-    url="https://www.cloudmersive.com/convert-api",
-    keywords=["Swagger", "convertapi"],
+    url="https://cloudmersive.com/video-and-media-services-api",
+    keywords=["Swagger", "videoapi"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
