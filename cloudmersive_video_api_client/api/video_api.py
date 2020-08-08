@@ -33,61 +33,59 @@ class VideoApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def video_convert_to_gif(self, input_file, **kwargs):  # noqa: E501
+    def video_convert_to_gif(self, **kwargs):  # noqa: E501
         """Convert Video to Animated GIF format.  # noqa: E501
 
-        Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video's aspect ratio.  # noqa: E501
+        Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video's aspect ratio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.video_convert_to_gif(input_file, async_req=True)
+        >>> thread = api.video_convert_to_gif(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file input_file: Input file to perform the operation on. (required)
+        :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
-        :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels.
-        :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels.
+        :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels.
+        :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels.
         :param bool preserve_aspect_ratio: Optional; If false, the original video's aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true.
         :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to 24 frames per second.
-        :param bool extend_processing_time: Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes.
         :param datetime start_time: Optional; Specify the desired starting time of the GIF video in TimeSpan format.
-        :param datetime time_span: Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes.
+        :param datetime time_span: Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.video_convert_to_gif_with_http_info(input_file, **kwargs)  # noqa: E501
+            return self.video_convert_to_gif_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.video_convert_to_gif_with_http_info(input_file, **kwargs)  # noqa: E501
+            (data) = self.video_convert_to_gif_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def video_convert_to_gif_with_http_info(self, input_file, **kwargs):  # noqa: E501
+    def video_convert_to_gif_with_http_info(self, **kwargs):  # noqa: E501
         """Convert Video to Animated GIF format.  # noqa: E501
 
-        Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video's aspect ratio.  # noqa: E501
+        Automatically detect video file format and convert it to animated GIF format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB. Default height is 250 pixels, while preserving the video's aspect ratio.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.video_convert_to_gif_with_http_info(input_file, async_req=True)
+        >>> thread = api.video_convert_to_gif_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file input_file: Input file to perform the operation on. (required)
+        :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
-        :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels.
-        :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels.
+        :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels.
+        :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels.
         :param bool preserve_aspect_ratio: Optional; If false, the original video's aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true.
         :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to 24 frames per second.
-        :param bool extend_processing_time: Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes.
         :param datetime start_time: Optional; Specify the desired starting time of the GIF video in TimeSpan format.
-        :param datetime time_span: Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes.
+        :param datetime time_span: Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'preserve_aspect_ratio', 'frame_rate', 'extend_processing_time', 'start_time', 'time_span']  # noqa: E501
+        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'preserve_aspect_ratio', 'frame_rate', 'start_time', 'time_span']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -102,10 +100,6 @@ class VideoApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'input_file' is set
-        if ('input_file' not in params or
-                params['input_file'] is None):
-            raise ValueError("Missing the required parameter `input_file` when calling `video_convert_to_gif`")  # noqa: E501
 
         collection_formats = {}
 
@@ -124,8 +118,6 @@ class VideoApi(object):
             header_params['preserveAspectRatio'] = params['preserve_aspect_ratio']  # noqa: E501
         if 'frame_rate' in params:
             header_params['frameRate'] = params['frame_rate']  # noqa: E501
-        if 'extend_processing_time' in params:
-            header_params['extendProcessingTime'] = params['extend_processing_time']  # noqa: E501
         if 'start_time' in params:
             header_params['startTime'] = params['start_time']  # noqa: E501
         if 'time_span' in params:
@@ -164,59 +156,57 @@ class VideoApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def video_convert_to_mov(self, input_file, **kwargs):  # noqa: E501
+    def video_convert_to_mov(self, **kwargs):  # noqa: E501
         """Convert Video to MOV format.  # noqa: E501
 
-        Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.  # noqa: E501
+        Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.video_convert_to_mov(input_file, async_req=True)
+        >>> thread = api.video_convert_to_mov(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file input_file: Input file to perform the operation on. (required)
+        :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
         :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
         :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
         :param bool preserve_aspect_ratio: Optional; If false, the original video's aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true.
         :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to original video frame rate.
         :param int quality: Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50.
-        :param bool extend_processing_time: Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.video_convert_to_mov_with_http_info(input_file, **kwargs)  # noqa: E501
+            return self.video_convert_to_mov_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.video_convert_to_mov_with_http_info(input_file, **kwargs)  # noqa: E501
+            (data) = self.video_convert_to_mov_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def video_convert_to_mov_with_http_info(self, input_file, **kwargs):  # noqa: E501
+    def video_convert_to_mov_with_http_info(self, **kwargs):  # noqa: E501
         """Convert Video to MOV format.  # noqa: E501
 
-        Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.  # noqa: E501
+        Automatically detect video file format and convert it to MOV format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.video_convert_to_mov_with_http_info(input_file, async_req=True)
+        >>> thread = api.video_convert_to_mov_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file input_file: Input file to perform the operation on. (required)
+        :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
         :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
         :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
         :param bool preserve_aspect_ratio: Optional; If false, the original video's aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true.
         :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to original video frame rate.
         :param int quality: Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50.
-        :param bool extend_processing_time: Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'preserve_aspect_ratio', 'frame_rate', 'quality', 'extend_processing_time']  # noqa: E501
+        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'preserve_aspect_ratio', 'frame_rate', 'quality']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -231,10 +221,6 @@ class VideoApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'input_file' is set
-        if ('input_file' not in params or
-                params['input_file'] is None):
-            raise ValueError("Missing the required parameter `input_file` when calling `video_convert_to_mov`")  # noqa: E501
 
         collection_formats = {}
 
@@ -255,8 +241,6 @@ class VideoApi(object):
             header_params['frameRate'] = params['frame_rate']  # noqa: E501
         if 'quality' in params:
             header_params['quality'] = params['quality']  # noqa: E501
-        if 'extend_processing_time' in params:
-            header_params['extendProcessingTime'] = params['extend_processing_time']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -291,59 +275,57 @@ class VideoApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def video_convert_to_mp4(self, input_file, **kwargs):  # noqa: E501
+    def video_convert_to_mp4(self, **kwargs):  # noqa: E501
         """Convert Video to MP4 format.  # noqa: E501
 
-        Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.  # noqa: E501
+        Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.video_convert_to_mp4(input_file, async_req=True)
+        >>> thread = api.video_convert_to_mp4(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file input_file: Input file to perform the operation on. (required)
+        :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
         :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
         :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
         :param bool preserve_aspect_ratio: Optional; If false, the original video's aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true.
         :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to original video frame rate.
         :param int quality: Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50.
-        :param bool extend_processing_time: Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.video_convert_to_mp4_with_http_info(input_file, **kwargs)  # noqa: E501
+            return self.video_convert_to_mp4_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.video_convert_to_mp4_with_http_info(input_file, **kwargs)  # noqa: E501
+            (data) = self.video_convert_to_mp4_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def video_convert_to_mp4_with_http_info(self, input_file, **kwargs):  # noqa: E501
+    def video_convert_to_mp4_with_http_info(self, **kwargs):  # noqa: E501
         """Convert Video to MP4 format.  # noqa: E501
 
-        Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.  # noqa: E501
+        Automatically detect video file format and convert it to MP4 format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.video_convert_to_mp4_with_http_info(input_file, async_req=True)
+        >>> thread = api.video_convert_to_mp4_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file input_file: Input file to perform the operation on. (required)
+        :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
         :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
         :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
         :param bool preserve_aspect_ratio: Optional; If false, the original video's aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true.
         :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to original video frame rate.
         :param int quality: Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50.
-        :param bool extend_processing_time: Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'preserve_aspect_ratio', 'frame_rate', 'quality', 'extend_processing_time']  # noqa: E501
+        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'preserve_aspect_ratio', 'frame_rate', 'quality']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -358,10 +340,6 @@ class VideoApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'input_file' is set
-        if ('input_file' not in params or
-                params['input_file'] is None):
-            raise ValueError("Missing the required parameter `input_file` when calling `video_convert_to_mp4`")  # noqa: E501
 
         collection_formats = {}
 
@@ -382,8 +360,6 @@ class VideoApi(object):
             header_params['frameRate'] = params['frame_rate']  # noqa: E501
         if 'quality' in params:
             header_params['quality'] = params['quality']  # noqa: E501
-        if 'extend_processing_time' in params:
-            header_params['extendProcessingTime'] = params['extend_processing_time']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -418,59 +394,168 @@ class VideoApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def video_convert_to_webm(self, input_file, **kwargs):  # noqa: E501
-        """Convert Video to WEBM format.  # noqa: E501
+    def video_convert_to_still_frames(self, **kwargs):  # noqa: E501
+        """Convert Video to PNG Still Frames.  # noqa: E501
 
-        Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.  # noqa: E501
+        Automatically detect video file format and convert it to an array of still frame PNG images. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.video_convert_to_webm(input_file, async_req=True)
+        >>> thread = api.video_convert_to_still_frames(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file input_file: Input file to perform the operation on. (required)
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
+        :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
+        :param object frames_per_second: Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames.
+        :return: StillFramesResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_convert_to_still_frames_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.video_convert_to_still_frames_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def video_convert_to_still_frames_with_http_info(self, **kwargs):  # noqa: E501
+        """Convert Video to PNG Still Frames.  # noqa: E501
+
+        Automatically detect video file format and convert it to an array of still frame PNG images. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_convert_to_still_frames_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
+        :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
+        :param object frames_per_second: Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames.
+        :return: StillFramesResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'frames_per_second']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_convert_to_still_frames" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'file_url' in params:
+            header_params['fileUrl'] = params['file_url']  # noqa: E501
+        if 'max_width' in params:
+            header_params['maxWidth'] = params['max_width']  # noqa: E501
+        if 'max_height' in params:
+            header_params['maxHeight'] = params['max_height']  # noqa: E501
+        if 'frames_per_second' in params:
+            header_params['framesPerSecond'] = params['frames_per_second']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+        if 'input_file' in params:
+            local_var_files['inputFile'] = params['input_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/video/convert/to/still-frames', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='StillFramesResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_convert_to_webm(self, **kwargs):  # noqa: E501
+        """Convert Video to WEBM format.  # noqa: E501
+
+        Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_convert_to_webm(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
         :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
         :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
         :param bool preserve_aspect_ratio: Optional; If false, the original video's aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true.
         :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to original video frame rate.
         :param int quality: Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50.
-        :param bool extend_processing_time: Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.video_convert_to_webm_with_http_info(input_file, **kwargs)  # noqa: E501
+            return self.video_convert_to_webm_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.video_convert_to_webm_with_http_info(input_file, **kwargs)  # noqa: E501
+            (data) = self.video_convert_to_webm_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def video_convert_to_webm_with_http_info(self, input_file, **kwargs):  # noqa: E501
+    def video_convert_to_webm_with_http_info(self, **kwargs):  # noqa: E501
         """Convert Video to WEBM format.  # noqa: E501
 
-        Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Maximum output file size is 50GB.  # noqa: E501
+        Automatically detect video file format and convert it to WEBM format. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.video_convert_to_webm_with_http_info(input_file, async_req=True)
+        >>> thread = api.video_convert_to_webm_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file input_file: Input file to perform the operation on. (required)
+        :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
         :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
         :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
         :param bool preserve_aspect_ratio: Optional; If false, the original video's aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true.
         :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to original video frame rate.
         :param int quality: Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50.
-        :param bool extend_processing_time: Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'preserve_aspect_ratio', 'frame_rate', 'quality', 'extend_processing_time']  # noqa: E501
+        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'preserve_aspect_ratio', 'frame_rate', 'quality']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -485,10 +570,6 @@ class VideoApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'input_file' is set
-        if ('input_file' not in params or
-                params['input_file'] is None):
-            raise ValueError("Missing the required parameter `input_file` when calling `video_convert_to_webm`")  # noqa: E501
 
         collection_formats = {}
 
@@ -509,8 +590,6 @@ class VideoApi(object):
             header_params['frameRate'] = params['frame_rate']  # noqa: E501
         if 'quality' in params:
             header_params['quality'] = params['quality']  # noqa: E501
-        if 'extend_processing_time' in params:
-            header_params['extendProcessingTime'] = params['extend_processing_time']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -545,42 +624,149 @@ class VideoApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def video_get_info(self, input_file, **kwargs):  # noqa: E501
-        """Get detailed information about a video or audio file  # noqa: E501
+    def video_cut_video(self, **kwargs):  # noqa: E501
+        """Cut a Video to a Shorter Length  # noqa: E501
 
-        Retrieve detailed information about a video or audio file, including format, dimensions, file size, bit rate, duration and start time. Compatible with many formats, including: AVI, ASF, FLV, GIF, MP4, MPEG/MPG, Matroska/WEBM, MOV, AIFF, ASF, CAF, MP3, MP2, MP1, Ogg, OMG/OMA, and WAV. Uses 1 API call per 10 MB of file size.  # noqa: E501
+        Cuts a video to the specified start and end times. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.video_get_info(input_file, async_req=True)
+        >>> thread = api.video_cut_video(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file input_file: Input file to perform the operation on. (required)
+        :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :param datetime start_time: Optional; Specify the desired starting time of the cut video in TimeSpan format.
+        :param datetime time_span: Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.video_get_info_with_http_info(input_file, **kwargs)  # noqa: E501
+            return self.video_cut_video_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.video_get_info_with_http_info(input_file, **kwargs)  # noqa: E501
+            (data) = self.video_cut_video_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def video_get_info_with_http_info(self, input_file, **kwargs):  # noqa: E501
+    def video_cut_video_with_http_info(self, **kwargs):  # noqa: E501
+        """Cut a Video to a Shorter Length  # noqa: E501
+
+        Cuts a video to the specified start and end times. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_cut_video_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :param datetime start_time: Optional; Specify the desired starting time of the cut video in TimeSpan format.
+        :param datetime time_span: Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['input_file', 'file_url', 'start_time', 'time_span']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_cut_video" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'file_url' in params:
+            header_params['fileUrl'] = params['file_url']  # noqa: E501
+        if 'start_time' in params:
+            header_params['startTime'] = params['start_time']  # noqa: E501
+        if 'time_span' in params:
+            header_params['timeSpan'] = params['time_span']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+        if 'input_file' in params:
+            local_var_files['inputFile'] = params['input_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/video/cut', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_get_info(self, **kwargs):  # noqa: E501
         """Get detailed information about a video or audio file  # noqa: E501
 
         Retrieve detailed information about a video or audio file, including format, dimensions, file size, bit rate, duration and start time. Compatible with many formats, including: AVI, ASF, FLV, GIF, MP4, MPEG/MPG, Matroska/WEBM, MOV, AIFF, ASF, CAF, MP3, MP2, MP1, Ogg, OMG/OMA, and WAV. Uses 1 API call per 10 MB of file size.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.video_get_info_with_http_info(input_file, async_req=True)
+        >>> thread = api.video_get_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param file input_file: Input file to perform the operation on. (required)
+        :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
-        :return: str
+        :return: MediaInformation
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_get_info_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.video_get_info_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def video_get_info_with_http_info(self, **kwargs):  # noqa: E501
+        """Get detailed information about a video or audio file  # noqa: E501
+
+        Retrieve detailed information about a video or audio file, including format, dimensions, file size, bit rate, duration and start time. Compatible with many formats, including: AVI, ASF, FLV, GIF, MP4, MPEG/MPG, Matroska/WEBM, MOV, AIFF, ASF, CAF, MP3, MP2, MP1, Ogg, OMG/OMA, and WAV. Uses 1 API call per 10 MB of file size.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_get_info_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :return: MediaInformation
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -600,10 +786,6 @@ class VideoApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'input_file' is set
-        if ('input_file' not in params or
-                params['input_file'] is None):
-            raise ValueError("Missing the required parameter `input_file` when calling `video_get_info`")  # noqa: E501
 
         collection_formats = {}
 
@@ -640,7 +822,459 @@ class VideoApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
+            response_type='MediaInformation',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_resize_video(self, **kwargs):  # noqa: E501
+        """Resizes a Video Preserving the Original Aspect Ratio.  # noqa: E501
+
+        Resizes a video, while maintaining the original aspect ratio and encoding. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_resize_video(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
+        :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
+        :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to original video frame rate.
+        :param int quality: Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50.
+        :param str extension: Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_resize_video_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.video_resize_video_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def video_resize_video_with_http_info(self, **kwargs):  # noqa: E501
+        """Resizes a Video Preserving the Original Aspect Ratio.  # noqa: E501
+
+        Resizes a video, while maintaining the original aspect ratio and encoding. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_resize_video_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
+        :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
+        :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to original video frame rate.
+        :param int quality: Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50.
+        :param str extension: Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'frame_rate', 'quality', 'extension']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_resize_video" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'file_url' in params:
+            header_params['fileUrl'] = params['file_url']  # noqa: E501
+        if 'max_width' in params:
+            header_params['maxWidth'] = params['max_width']  # noqa: E501
+        if 'max_height' in params:
+            header_params['maxHeight'] = params['max_height']  # noqa: E501
+        if 'frame_rate' in params:
+            header_params['frameRate'] = params['frame_rate']  # noqa: E501
+        if 'quality' in params:
+            header_params['quality'] = params['quality']  # noqa: E501
+        if 'extension' in params:
+            header_params['extension'] = params['extension']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+        if 'input_file' in params:
+            local_var_files['inputFile'] = params['input_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/video/resize/preserveAspectRatio', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
             response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_resize_video_simple(self, **kwargs):  # noqa: E501
+        """Resizes a Video without Preserving Aspect Ratio.  # noqa: E501
+
+        Resizes a video without maintaining original aspect ratio, allowing fully customizable dimensions. May cause image skewing. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_resize_video_simple(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
+        :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
+        :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to original video frame rate.
+        :param int quality: Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50.
+        :param str extension: Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_resize_video_simple_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.video_resize_video_simple_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def video_resize_video_simple_with_http_info(self, **kwargs):  # noqa: E501
+        """Resizes a Video without Preserving Aspect Ratio.  # noqa: E501
+
+        Resizes a video without maintaining original aspect ratio, allowing fully customizable dimensions. May cause image skewing. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_resize_video_simple_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
+        :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
+        :param int frame_rate: Optional; Specify the frame rate of the output video. Defaults to original video frame rate.
+        :param int quality: Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50.
+        :param str extension: Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['input_file', 'file_url', 'max_width', 'max_height', 'frame_rate', 'quality', 'extension']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_resize_video_simple" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'file_url' in params:
+            header_params['fileUrl'] = params['file_url']  # noqa: E501
+        if 'max_width' in params:
+            header_params['maxWidth'] = params['max_width']  # noqa: E501
+        if 'max_height' in params:
+            header_params['maxHeight'] = params['max_height']  # noqa: E501
+        if 'frame_rate' in params:
+            header_params['frameRate'] = params['frame_rate']  # noqa: E501
+        if 'quality' in params:
+            header_params['quality'] = params['quality']  # noqa: E501
+        if 'extension' in params:
+            header_params['extension'] = params['extension']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+        if 'input_file' in params:
+            local_var_files['inputFile'] = params['input_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/video/resize/target', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_scan_for_nsfw(self, **kwargs):  # noqa: E501
+        """Scan a Video for NSFW content.  # noqa: E501
+
+        Automatically detect video file format and scan it for Not Safe For Work (NSFW)/Porn/Racy content. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per frame scanned.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_scan_for_nsfw(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being scanned. Use this option for files larger than 2GB.
+        :param object frames_per_second: Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos.
+        :return: NsfwResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_scan_for_nsfw_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.video_scan_for_nsfw_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def video_scan_for_nsfw_with_http_info(self, **kwargs):  # noqa: E501
+        """Scan a Video for NSFW content.  # noqa: E501
+
+        Automatically detect video file format and scan it for Not Safe For Work (NSFW)/Porn/Racy content. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, OGV, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per frame scanned.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_scan_for_nsfw_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being scanned. Use this option for files larger than 2GB.
+        :param object frames_per_second: Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos.
+        :return: NsfwResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['input_file', 'file_url', 'frames_per_second']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_scan_for_nsfw" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'file_url' in params:
+            header_params['fileUrl'] = params['file_url']  # noqa: E501
+        if 'frames_per_second' in params:
+            header_params['framesPerSecond'] = params['frames_per_second']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+        if 'input_file' in params:
+            local_var_files['inputFile'] = params['input_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/video/scan/nsfw', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='NsfwResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def video_split_video(self, split_time, **kwargs):  # noqa: E501
+        """Split a Video into Two Shorter Videos  # noqa: E501
+
+        Cuts a video into two videos based on the specified start time. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_split_video(split_time, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param datetime split_time: Specify the desired time at which to split the video in TimeSpan format. (required)
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :param datetime time_span: Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours.
+        :return: SplitVideoResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.video_split_video_with_http_info(split_time, **kwargs)  # noqa: E501
+        else:
+            (data) = self.video_split_video_with_http_info(split_time, **kwargs)  # noqa: E501
+            return data
+
+    def video_split_video_with_http_info(self, split_time, **kwargs):  # noqa: E501
+        """Split a Video into Two Shorter Videos  # noqa: E501
+
+        Cuts a video into two videos based on the specified start time. Supports many input video formats, including AVI, ASF, FLV, MP4, MPEG/MPG, Matroska/WEBM, 3G2, MKV, M4V and MOV. Uses 1 API call per 10 MB of file size. Also uses 1 API call per additional minute of processing time over 5 minutes, up to a maximum of 25 minutes total processing time. Maximum output file size is 50GB.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.video_split_video_with_http_info(split_time, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param datetime split_time: Specify the desired time at which to split the video in TimeSpan format. (required)
+        :param file input_file: Input file to perform the operation on.
+        :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
+        :param datetime time_span: Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours.
+        :return: SplitVideoResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['split_time', 'input_file', 'file_url', 'time_span']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method video_split_video" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'split_time' is set
+        if ('split_time' not in params or
+                params['split_time'] is None):
+            raise ValueError("Missing the required parameter `split_time` when calling `video_split_video`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'file_url' in params:
+            header_params['fileUrl'] = params['file_url']  # noqa: E501
+        if 'split_time' in params:
+            header_params['splitTime'] = params['split_time']  # noqa: E501
+        if 'time_span' in params:
+            header_params['timeSpan'] = params['time_span']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+        if 'input_file' in params:
+            local_var_files['inputFile'] = params['input_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/video/split', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SplitVideoResult',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

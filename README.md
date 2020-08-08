@@ -4,7 +4,7 @@ The video APIs help you convert, encode, and transcode videos.
 This Python package provides a native API client for [Cloudmersive Video and Media Services](https://cloudmersive.com/video-and-media-services-api)
 
 - API version: v1
-- Package version: 3.0.1
+- Package version: 3.0.2
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -58,23 +58,17 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Apikey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudmersive_video_api_client.VideoApi(cloudmersive_video_api_client.ApiClient(configuration))
-input_file = '/path/to/file.txt' # file | Input file to perform the operation on.
-file_url = 'file_url_example' # str | Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-max_width = 56 # int | Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-max_height = 56 # int | Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-preserve_aspect_ratio = true # bool | Optional; If false, the original video's aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
-frame_rate = 56 # int | Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-extend_processing_time = true # bool | Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
-start_time = '2013-10-20T19:20:30+01:00' # datetime | Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-time_span = '2013-10-20T19:20:30+01:00' # datetime | Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+api_instance = cloudmersive_video_api_client.AudioApi(cloudmersive_video_api_client.ApiClient(configuration))
+input_file = '/path/to/file.txt' # file | Input file to perform the operation on. (optional)
+file_url = 'file_url_example' # str | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
+bit_rate = NULL # object | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
 
 try:
-    # Convert Video to Animated GIF format.
-    api_response = api_instance.video_convert_to_gif(input_file, file_url=file_url, max_width=max_width, max_height=max_height, preserve_aspect_ratio=preserve_aspect_ratio, frame_rate=frame_rate, extend_processing_time=extend_processing_time, start_time=start_time, time_span=time_span)
+    # Convert Audio File to AAC format.
+    api_response = api_instance.audio_convert_to_aac(input_file=input_file, file_url=file_url, bit_rate=bit_rate)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling VideoApi->video_convert_to_gif: %s\n" % e)
+    print("Exception when calling AudioApi->audio_convert_to_aac: %s\n" % e)
 
 ```
 
@@ -84,16 +78,32 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AudioApi* | [**audio_convert_to_aac**](docs/AudioApi.md#audio_convert_to_aac) | **POST** /audio/convert/to/aac | Convert Audio File to AAC format.
+*AudioApi* | [**audio_convert_to_m4a**](docs/AudioApi.md#audio_convert_to_m4a) | **POST** /audio/convert/to/m4a | Convert Audio File to M4A format.
+*AudioApi* | [**audio_convert_to_mp3**](docs/AudioApi.md#audio_convert_to_mp3) | **POST** /audio/convert/to/mp3 | Convert Audio File to MP3 format.
+*AudioApi* | [**audio_convert_to_wav**](docs/AudioApi.md#audio_convert_to_wav) | **POST** /audio/convert/to/wav | Convert Audio File to WAV format.
 *VideoApi* | [**video_convert_to_gif**](docs/VideoApi.md#video_convert_to_gif) | **POST** /video/convert/to/gif | Convert Video to Animated GIF format.
 *VideoApi* | [**video_convert_to_mov**](docs/VideoApi.md#video_convert_to_mov) | **POST** /video/convert/to/mov | Convert Video to MOV format.
 *VideoApi* | [**video_convert_to_mp4**](docs/VideoApi.md#video_convert_to_mp4) | **POST** /video/convert/to/mp4 | Convert Video to MP4 format.
+*VideoApi* | [**video_convert_to_still_frames**](docs/VideoApi.md#video_convert_to_still_frames) | **POST** /video/convert/to/still-frames | Convert Video to PNG Still Frames.
 *VideoApi* | [**video_convert_to_webm**](docs/VideoApi.md#video_convert_to_webm) | **POST** /video/convert/to/webm | Convert Video to WEBM format.
+*VideoApi* | [**video_cut_video**](docs/VideoApi.md#video_cut_video) | **POST** /video/cut | Cut a Video to a Shorter Length
 *VideoApi* | [**video_get_info**](docs/VideoApi.md#video_get_info) | **POST** /video/convert/get-info | Get detailed information about a video or audio file
+*VideoApi* | [**video_resize_video**](docs/VideoApi.md#video_resize_video) | **POST** /video/resize/preserveAspectRatio | Resizes a Video Preserving the Original Aspect Ratio.
+*VideoApi* | [**video_resize_video_simple**](docs/VideoApi.md#video_resize_video_simple) | **POST** /video/resize/target | Resizes a Video without Preserving Aspect Ratio.
+*VideoApi* | [**video_scan_for_nsfw**](docs/VideoApi.md#video_scan_for_nsfw) | **POST** /video/scan/nsfw | Scan a Video for NSFW content.
+*VideoApi* | [**video_split_video**](docs/VideoApi.md#video_split_video) | **POST** /video/split | Split a Video into Two Shorter Videos
 
 
 ## Documentation For Models
 
  - [MediaInformation](docs/MediaInformation.md)
+ - [NsfwResult](docs/NsfwResult.md)
+ - [NsfwScannedFrame](docs/NsfwScannedFrame.md)
+ - [SplitVideoResult](docs/SplitVideoResult.md)
+ - [StillFrame](docs/StillFrame.md)
+ - [StillFramesResult](docs/StillFramesResult.md)
+ - [VideoFile](docs/VideoFile.md)
 
 
 ## Documentation For Authorization
