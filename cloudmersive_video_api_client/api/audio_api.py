@@ -121,7 +121,7 @@ class AudioApi(object):
         auth_settings = ['Apikey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/audio/convert/to/aac', 'POST',
+            '/video/convert/to/aac', 'POST',
             path_params,
             query_params,
             header_params,
@@ -224,7 +224,7 @@ class AudioApi(object):
         auth_settings = ['Apikey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/audio/convert/to/m4a', 'POST',
+            '/video/convert/to/m4a', 'POST',
             path_params,
             query_params,
             header_params,
@@ -327,7 +327,7 @@ class AudioApi(object):
         auth_settings = ['Apikey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/audio/convert/to/mp3', 'POST',
+            '/video/convert/to/mp3', 'POST',
             path_params,
             query_params,
             header_params,
@@ -430,7 +430,7 @@ class AudioApi(object):
         auth_settings = ['Apikey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/audio/convert/to/wav', 'POST',
+            '/video/convert/to/wav', 'POST',
             path_params,
             query_params,
             header_params,
