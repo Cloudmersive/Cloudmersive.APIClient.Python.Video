@@ -4,7 +4,7 @@ The video APIs help you convert, encode, and transcode videos.
 This Python package provides a native API client for [Cloudmersive Video and Media Services](https://cloudmersive.com/video-and-media-services-api)
 
 - API version: v1
-- Package version: 3.0.3
+- Package version: 3.0.4
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -61,7 +61,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 api_instance = cloudmersive_video_api_client.AudioApi(cloudmersive_video_api_client.ApiClient(configuration))
 input_file = '/path/to/file.txt' # file | Input file to perform the operation on. (optional)
 file_url = 'file_url_example' # str | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-bit_rate = NULL # object | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+bit_rate = 56 # int | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
 
 try:
     # Convert Audio File to AAC format.

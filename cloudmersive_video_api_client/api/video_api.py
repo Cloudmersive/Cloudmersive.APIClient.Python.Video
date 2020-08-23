@@ -131,7 +131,7 @@ class VideoApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -250,7 +250,7 @@ class VideoApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -369,7 +369,7 @@ class VideoApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -408,7 +408,7 @@ class VideoApi(object):
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
         :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
         :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
-        :param object frames_per_second: Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames.
+        :param float frames_per_second: Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames.
         :return: StillFramesResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -434,7 +434,7 @@ class VideoApi(object):
         :param str file_url: Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB.
         :param int max_width: Optional; Maximum width of the output video, up to the original video width. Defaults to original video width.
         :param int max_height: Optional; Maximum height of the output video, up to the original video width. Defaults to original video height.
-        :param object frames_per_second: Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames.
+        :param float frames_per_second: Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames.
         :return: StillFramesResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -599,7 +599,7 @@ class VideoApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -706,7 +706,7 @@ class VideoApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -924,7 +924,7 @@ class VideoApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1043,7 +1043,7 @@ class VideoApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1080,7 +1080,7 @@ class VideoApi(object):
         :param async_req bool
         :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being scanned. Use this option for files larger than 2GB.
-        :param object frames_per_second: Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos.
+        :param float frames_per_second: Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos.
         :return: NsfwResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1104,7 +1104,7 @@ class VideoApi(object):
         :param async_req bool
         :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of a video file being scanned. Use this option for files larger than 2GB.
-        :param object frames_per_second: Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos.
+        :param float frames_per_second: Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos.
         :return: NsfwResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1257,7 +1257,7 @@ class VideoApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501

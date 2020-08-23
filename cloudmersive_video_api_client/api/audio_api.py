@@ -45,7 +45,7 @@ class AudioApi(object):
         :param async_req bool
         :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-        :param object bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+        :param int bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -69,7 +69,7 @@ class AudioApi(object):
         :param async_req bool
         :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-        :param object bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+        :param int bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -111,7 +111,7 @@ class AudioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -148,7 +148,7 @@ class AudioApi(object):
         :param async_req bool
         :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-        :param object bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+        :param int bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -172,7 +172,7 @@ class AudioApi(object):
         :param async_req bool
         :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-        :param object bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+        :param int bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -214,7 +214,7 @@ class AudioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -251,7 +251,7 @@ class AudioApi(object):
         :param async_req bool
         :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-        :param object bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+        :param int bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -275,7 +275,7 @@ class AudioApi(object):
         :param async_req bool
         :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-        :param object bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+        :param int bit_rate: Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -317,7 +317,7 @@ class AudioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -354,7 +354,7 @@ class AudioApi(object):
         :param async_req bool
         :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-        :param object sample_rate: Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically.
+        :param float sample_rate: Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -378,7 +378,7 @@ class AudioApi(object):
         :param async_req bool
         :param file input_file: Input file to perform the operation on.
         :param str file_url: Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-        :param object sample_rate: Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically.
+        :param float sample_rate: Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically.
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -420,7 +420,7 @@ class AudioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
